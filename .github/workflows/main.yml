@@ -18,4 +18,4 @@ jobs:
         username: mstudio-masashis
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: home/mstudio-masashis/www/git-aaa/
+        server-dir: ./
