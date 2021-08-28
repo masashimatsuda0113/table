@@ -1,19 +1,20 @@
 on:
   push:
-    branches:
       - master
-name: master 
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: FTP-Deploy-Action
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.2
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: ./
-          REMOTE_DIR: mstudio-masashis.sakura.ne.jp/www/git-aaa/
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      with:
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /home/mstudio-masashis/www/git-aaa
