@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-name: 🚀 Deploy website on push to Develop
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -14,8 +14,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
+        server: mstudio-masashis.sakura.ne.jp
+        username: mstudio-masashis
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
         server-dir: home/mstudio-masashis/www/git-aaa/
